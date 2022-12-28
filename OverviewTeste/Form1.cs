@@ -7,10 +7,19 @@ namespace OverviewTeste
             InitializeComponent();
         }
 
+        int countReg = 0;
+        private void contador(int countreg)
+        {
+            label3.Text = "Registro: ";
+            label3.Text = label3.Text + ' ' + countreg;
+        }
 
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+
+            countReg += 1;
+            contador(countReg);
             // Somente letras maiúsculas
             txtNome.Text = txtNome.Text.ToUpper();
 
@@ -40,6 +49,9 @@ namespace OverviewTeste
 
         private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            countReg -= 1;
+            contador(countReg);
+
             listView1.Items.RemoveAt(listView1.SelectedIndices[0]);
             {
                 MessageBox.Show("O REGISTRO FOI EXCLUÍDO COM SUCESSO!");
@@ -65,7 +77,10 @@ namespace OverviewTeste
                     return;
                 }                  
             }
-             
+           
+        
+
         }
+
     }
 }
